@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 export const CPStudentForm = ({ student, onSubmit, onResetForm }) => {
-    const [formData, setFormData] = useState({ name: '', email: '', age: '' });
+    const [formData, setFormData] = useState({});
 
     useEffect(() => {
         if (student) {
             setFormData(student);
         } else {
-            setFormData({ name: '', email: '', age: '' });
+            setFormData({});
         }
     }, [student]);
 
@@ -26,26 +26,23 @@ export const CPStudentForm = ({ student, onSubmit, onResetForm }) => {
             <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData.name || ``}
                 onChange={handleChange}
                 placeholder="Name"
-                required
             />
             <input
                 type="email"
                 name="email"
-                value={formData.email}
+                value={formData.email || ``}
                 onChange={handleChange}
                 placeholder="Email"
-                required
             />
             <input
                 type="number"
                 name="age"
-                value={formData.age}
+                value={formData.age || ``}
                 onChange={handleChange}
                 placeholder="Age"
-                required
             />
             <button type="submit">{student ? 'Update' : 'Add'} Student</button>
             
