@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/api/students';
 
-export const getStudents = async () => {
-    const response = await axios.get(`${API_URL}`);
+export const getStudents = async ({searchKeywords}) => {
+    const response = await axios.get(`${API_URL}?${searchKeywords ? `name=${searchKeywords}&email=${searchKeywords}` : ``}`);
     return response.data.content || [];
 };
 
