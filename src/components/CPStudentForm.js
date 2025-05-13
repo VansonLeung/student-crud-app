@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const CPStudentForm = ({ student, onSubmit, resetForm }) => {
+export const CPStudentForm = ({ student, onSubmit, onResetForm }) => {
     const [formData, setFormData] = useState({ name: '', email: '', age: '' });
 
     useEffect(() => {
@@ -16,10 +16,9 @@ export const CPStudentForm = ({ student, onSubmit, resetForm }) => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData);
-        resetForm();
+        onSubmit && await onSubmit(formData);
     };
 
     return (
@@ -49,6 +48,13 @@ export const CPStudentForm = ({ student, onSubmit, resetForm }) => {
                 required
             />
             <button type="submit">{student ? 'Update' : 'Add'} Student</button>
-        </form>
+            
+            {
+                student && (
+                    <button onClick={(e) => { onResetForm && onResetForm(e); }}>Cancel</button>
+                )
+            }
+
+            </form>
     );
 };

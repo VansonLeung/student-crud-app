@@ -35,14 +35,14 @@ export const PageStudent = () => {
         fetchStudents();
     };
 
-    const resetForm = () => {
+    const handleResetForm = () => {
         setEditingStudent(null);
     };
 
     return (
         <div>
             <h1>Student Management</h1>
-            <CPStudentForm student={editingStudent} onSubmit={handleAddOrUpdateStudent} resetForm={resetForm} />
+            <CPStudentForm student={editingStudent} onSubmit={handleAddOrUpdateStudent} onResetForm={handleResetForm} />
             <CPStudentList students={students} onEdit={handleEdit} onDelete={handleDelete} />
         </div>
     );
