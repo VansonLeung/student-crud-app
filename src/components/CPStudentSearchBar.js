@@ -23,12 +23,15 @@ export const CPStudentSearchBar = ({ value, onChangeValue }) => {
             e.stopPropagation();
             applyDebouncedSearchTerm();
         }}>
-            <input
-                type="text"
-                value={inputValue}
-                onChange={handleChange}
-                placeholder="Search students..."
-            />
+            <div style={{display: `flex`, alignItems: `center`, gap: 10,}}>
+                <label>Search</label>
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleChange}
+                    placeholder="Search students..."
+                />
+            </div>
         </form>
     );
 };

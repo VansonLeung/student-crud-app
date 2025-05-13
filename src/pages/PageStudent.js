@@ -57,6 +57,7 @@ export const PageStudent = () => {
         <div>
             <h1>Student Management</h1>
             <CPStudentForm student={editingStudent} onSubmit={handleAddOrUpdateStudent} onResetForm={handleResetForm} />
+            <br/>
             <CPStudentSearchBar value={searchKeywords} onChangeValue={handleSearchKeywordsChangeValue} />
             <CPStudentList students={students} onEdit={handleEdit} onDelete={handleDelete} />
         </div>

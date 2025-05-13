@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080/api/students';
 
 export const getStudents = async ({searchKeywords}) => {
-    const response = await axios.get(`${API_URL}?${searchKeywords ? `name=${searchKeywords}&email=${searchKeywords}` : ``}`);
+    const response = await axios.get(`${API_URL}?${searchKeywords ? `name=${searchKeywords}&email=${searchKeywords}&age=${searchKeywords}` : ``}`);
     return response.data.content || [];
 };
 
